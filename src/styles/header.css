@@ -1,0 +1,13 @@
+#header {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing3) var(--sitePaddingX);
+}
+
+.authentication-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing2);
+}

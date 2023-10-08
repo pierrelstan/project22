@@ -1,0 +1,19 @@
+:root {
+ --spacing1: 0.25rem;
+ --spacing2: 0.5rem;
+ --spacing3: 1rem;
+ --spacing4: 2rem;
+ --sitePaddingX: 8%;
+ --borderRadius: 4px;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.headshot-circle {
+  border-radius: 50%;
+}
+

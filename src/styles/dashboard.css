@@ -1,0 +1,8 @@
+.dashboard {
+  height: calc(100vh - 80px);
+  position: relative;
+}
+
+.dashboard-main {
+  left: 25%;
+}
