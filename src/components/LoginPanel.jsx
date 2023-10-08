@@ -9,6 +9,7 @@ export default function LoginPanel() {
   const [ email, setEmail ] = useState("")
   const [ password, setPassword ] = useState("")
   const [ isPending, setIsPending ] = useState(false)
+
   const router = useRouter()
 
   const handleSubmit = (e) => {
@@ -20,11 +21,11 @@ export default function LoginPanel() {
     console.log(isPending)
     
     fetch("/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-    }).then(() => {
-      router.push("/dashboard")
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+      }).then(() => {
+        router.push("/dashboard")
     })
 
     console.log(isPending)

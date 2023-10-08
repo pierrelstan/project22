@@ -1,8 +1,8 @@
-'use client'
+// 'use client'
 
 import '@styles/header.css';
-import Link from 'next/link'
-import Image from 'next/image'
+// import Link from 'next/link'
+// import Image from 'next/image'
 
 // import { useSession, signOut } from 'next-auth/react'
 
