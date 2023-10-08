@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function LoginPanel() {
 
@@ -8,19 +9,27 @@ export default function LoginPanel() {
   const [ email, setEmail ] = useState("")
   const [ password, setPassword ] = useState("")
   const [ isPending, setIsPending ] = useState(false)
+  const router = useRouter()
 
   const handleSubmit = (e) => {
-    const data = { username, email, password }
     e.preventDefault()
+    const data = { username, email, password }
+    
+    console.log(isPending)
     setIsPending(true)
+    console.log(isPending)
     
     fetch("/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+    }).then(() => {
+      router.push("/dashboard")
     })
-    console.log("running")
+
+    console.log(isPending)
     setIsPending(false)
+    console.log(isPending)
   }
 
   return (

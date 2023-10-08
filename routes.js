@@ -1,24 +1,21 @@
-const express = require('express')
+const router = require('express').Router()
 const passport = require("passport")
-const passportConfig = require("./src/lib/passport")
 const passwordUtils = require("./src/lib/passwordUtils")
 const User = require("./src/models/User")
 
-const server = express()
-
-server.post(
+router.post(
 	"/login",
 	passport.authenticate("local"),
 	function (req, res, next) {
 		if (req.isAuthenticated() && req.user.admin) {
 			res.redirect("/admin-dashboard")
 		} else {
-			res.redirect("/dashboard")
+			res.sendStatus(200)
 		}
 	}
 )
 
-server.post("/register", async (req, res, next) => {
+router.post("/register", async (req, res, next) => {
   const { email, username, password, admin } = req.body
   try {
     const hash = await passwordUtils.hashPassword(password)
@@ -30,4 +27,4 @@ server.post("/register", async (req, res, next) => {
   }
 });
 
-module.exports = server
+module.exports = router

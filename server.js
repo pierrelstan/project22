@@ -41,10 +41,10 @@ app.prepare().then(() => {
   // Redirecting routes to Express.js
   server.use(routes)
 
-    // Redirecting all requests to Next.js 
-    server.all('*', (req, res) => {
-      return handle(req, res)
-    })
+  // Redirecting all requests to Next.js 
+  server.all('*', (req, res) => {
+    return handle(req, res)
+  })
     
 
   server.listen(port, (err) => {
